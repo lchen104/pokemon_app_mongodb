@@ -41,6 +41,16 @@ const Main = () => {
         textAlign: 'center',
     }
 
+    const pDiv = {
+        fontFamily: 'sans-serif',
+        backgroundColor: 'white',
+        width: '500px',
+        height: '400px',
+        textAlign: 'center',
+        display: 'inline-block',
+        border: '1px solid #141414'
+    }
+
     return(
         <>
         <div style={container}>
@@ -53,6 +63,7 @@ const Main = () => {
                 <a href="/" alt="">Home</a> | <a href="/pokemon" alt="List Pokemon">List Pokemon</a> | <a href="/pokemon/new" alt="Add Pokemon">Create Pokemon</a>
                 </h2>
             </nav>
+            <div style={pDiv}><h2>Create your own Pokemon and BATTLE!</h2></div>
         </div>
         <h4 style={h4}>Copyright &copy; 2023. Pika Pika. All Rights Reserved.</h4>
         </>
