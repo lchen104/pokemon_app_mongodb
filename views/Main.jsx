@@ -48,7 +48,8 @@ const Main = () => {
         height: '400px',
         textAlign: 'center',
         display: 'inline-block',
-        border: '1px solid #141414'
+        border: '1px solid #141414',
+        boxShadow: '5px 5px 30px #141414'
     }
 
     return(

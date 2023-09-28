@@ -26,6 +26,8 @@ mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 });
 
+const methodOverride = require('method-override');
+
 // Setting up the view engine
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
@@ -49,6 +51,9 @@ app.use((req, res, next) => {
 
 // Near the top, around other app.use() calls
 app.use(express.urlencoded({extended:false}));
+
+// method override - Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+app.use(methodOverride('_method'));
 
 // to add static background image
 app.use(express.static('images'));
@@ -88,7 +93,7 @@ app.get('/pokemon/new', (req, res) => {
 // Since the form in the last step tells the browser to create a POST request to /fruits,
 // we'll need to set up a route handler for this kind of request
 app.post('/pokemon', async (req, res)=>{
-    console.log(req.body.name)
+    // console.log(req.body.name)
 
     if(req.body.readyToFight === 'on'){ //if checked, req.body.readyToFight is set to 'on'
         req.body.readyToFight = true; //do some data correction
@@ -127,6 +132,38 @@ app.get('/pokemon/:id', async (req, res) => {
     })
 })
 
+// edit pokemon from mongoDB
+app.get('/pokemon/:id/edit', async (req, res) => {
+    const foundPokemon = await Pokemon.findById(req.params.id)
+    res.render('Edit', {
+        pokemon: foundPokemon
+    })
+})
+
+// update pokemon from mongoDB
+app.put('/pokemon/:id', async (req, res) => {
+
+    // verify if checkbox is clicked
+    req.body.readyToFight === 'on' ? req.body.readyToFight = true : req.body.readyToFight = false;
+   
+    // if (req.body.readyToFight === "on") {
+    //     req.body.readyToFight = true;
+    //   } else {
+    //     req.body.readyToFight = false;
+    //   }
+
+    // find the fruit and update by id
+    const updatedPokemon = await Pokemon.findByIdAndUpdate(req.params.id, req.body)
+    console.log(updatedPokemon)
+    res.redirect(`/pokemon/${req.params.id}`)
+})
+
+// delete pokemon from mongoDB
+app.delete('/pokemon/:id', async (req, res) => {
+    // res.send('deleting...')
+    await Pokemon.findByIdAndRemove(req.params.id)
+    res.redirect('/pokemon')
+})
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT);
