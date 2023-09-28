@@ -1,5 +1,5 @@
 # Introduction
-Pokemon App. You can list, create and show individual pokemon cards.
+Full CRUD from original [Pokemon App] (https://github.com/lchen104/pokemon_app). You can list, create, modify, delete and show individual pokemon cards.
 
 ## Project Description
 Make a Pokemon app that displays data inside server-side rendered views.
@@ -21,6 +21,4 @@ Make a Pokemon app that displays data inside server-side rendered views.
 - Express
 - Node
 - JSX
-
-# Future Enhancements
-Pokemon App in Full CRUD [https://github.com/lchen104/pokemon_app_mongodb]
+- MongoDB
