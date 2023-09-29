@@ -3,6 +3,7 @@ Full CRUD from original [Pokemon App] (https://github.com/lchen104/pokemon_app).
 
 ## Project Description
 Make a Pokemon app that displays data inside server-side rendered views.
+Images and design was included by me and not part of the mini-project.
 
 # Main Page
 ![Main Page](images/mainpage.png)
