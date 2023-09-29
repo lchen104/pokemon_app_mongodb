@@ -43,13 +43,16 @@ const Index = ({pokemon}) => {
 
 
     const card = {
+
       width: '200px',
       height: '370px',
       border: '10px solid lightgrey',
       borderRadius: '10px',
       margin: '5px',
       padding: '5px',
-      display: 'inline-block',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
       backgroundColor: 'white',
       boxShadow: '5px 5px 30px #141414'
     }
@@ -90,18 +93,26 @@ const Index = ({pokemon}) => {
                     pokemon.map((poke, i) => (
                       <>
                         <div style={card} key={i}>
+
+                          <div>
                             <h2><a href={`/pokemon/${poke.id}`}> {poke.name[0].toUpperCase() + poke.name.slice(1)} </a></h2>
-                            <img style={img} src={poke.img + '.jpg'} alt={poke.name} />
-                            {/* <h3>{poke.readyToFight ? 'Ready to FIGHT!' : 'Cowards away...!'}</h3> */}
-                            <p>
-                              <form method='POST' action={`/pokemon/${poke._id}?_method=DELETE`}>
-                              {/* Delete button */}
-                                  <input type="submit" value="DELETE"/>
-                              </form>
-                            </p>
-                            <p>
-                              <a href={`/pokemon/${poke._id}/edit`}> Edit {poke.name[0].toUpperCase() + poke.name.slice(1)} </a>
-                            </p>
+                                <img style={img} src={poke.img + '.jpg'} alt={poke.name} />
+                                {/* <h3>{poke.readyToFight ? 'Ready to FIGHT!' : 'Cowards away...!'}</h3> */}
+                                
+                          </div>
+
+                            <div>
+                              <p>
+                                <form method='POST' action={`/pokemon/${poke._id}?_method=DELETE`}>
+                                {/* Delete button */}
+                                    <input type="submit" value="DELETE"/>
+                                </form>
+                              </p>
+                              <p>
+                                <a href={`/pokemon/${poke._id}/edit`}> Edit {poke.name[0].toUpperCase() + poke.name.slice(1)} </a>
+                              </p>
+                            </div>
+
                         </div>
                        </> 
                     )) 
