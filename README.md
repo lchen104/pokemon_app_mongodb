@@ -13,8 +13,14 @@ Make a Pokemon app that displays data inside server-side rendered views.
 # Create a new Pokemon
 ![Create New Pokemon](images/createpokemon.png)
 
+# Edit a Pokemon
+![Edit a Pokemon](images/editpokemon.png)
+
 # Show Pokemon
 ![Show Pokemon Details](images/showpokemon.png)
+
+# Deleted Pokemon
+![Deleted a Pokemon](images/deletedpokemon.png)
 
 # Technologies Used
 - Javascript
