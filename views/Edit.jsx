@@ -11,7 +11,7 @@ const Edit = ({pokemon}) => {
       height: '95vh',
       margin: '0px,',
       padding: '0px',
-      backgroundImage: 'url("./pokemon-bg.jpeg")'
+      backgroundImage: 'url("/pokemon-bg.jpeg")'
     }
   
     const content = {
