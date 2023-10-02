@@ -24,6 +24,8 @@ Images and design was included by me and not part of the mini-project.
 ![Deleted a Pokemon](images/deletedpokemon.png)
 
 # Technologies Used
+- HTML
+- CSS
 - Javascript
 - Express
 - Node
